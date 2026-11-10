@@ -1,0 +1,55 @@
+[project]
+name = "mkapp"
+version = "0.1.0"
+description = "Minimal trusted-plugin desktop framework on ImGui-Bundle"
+readme = "README.md"
+requires-python = ">=3.14,<3.15"
+dependencies = [
+    "imgui-bundle>=1.93.0,<1.94",
+    "keyring>=25.7.0,<26",
+    "msgpack>=1.2.4,<2",
+    "packaging>=26.3,<27",
+    "pyzmq>=27.3.0,<28",
+]
+
+[project.scripts]
+mkapp = "mkapp:main"
+
+[project.optional-dependencies]
+duckdb = [
+    "duckdb>=2.0.0,<2.1",
+]
+
+[build-system]
+requires = ["uv_build>=0.13.1,<0.14.0"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py314"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.mypy]
+python_version = "3.14"
+files = ["src/mkapp"]
+check_untyped_defs = true
+disallow_untyped_defs = true
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+module = ["msgpack", "imgui_bundle.*"]
+ignore_missing_imports = true
+
+[dependency-groups]
+dev = [
+    "mypy>=2.4.1",
+    "pytest>=9.2.0",
+    "pytest-asyncio>=1.4.1.post1",
+    "ruff>=0.17.4",
+]

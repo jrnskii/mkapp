@@ -1,0 +1,3 @@
+[tools]
+codegraph = "latest"
+uv = "latest"

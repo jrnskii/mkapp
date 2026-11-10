@@ -1,0 +1,6 @@
+manifest_version = 1
+id = "example.wheel"
+version = "0.1.0"
+sdk = ">=0.1,<0.2"
+entry = "mkapp_example_wheel:create_plugin"
+announce = false

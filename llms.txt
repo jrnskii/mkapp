@@ -1,0 +1,12 @@
+# mkapp
+
+> Minimal Python desktop host for trusted local plugins. Public plugin imports come from mkapp.sdk. CPython 3.14; SDK 0.1. Implementation and release acceptance are still in progress.
+
+- [LLM SDK guide](docs/LLM_SDK_GUIDE.md): Read first. Current API contracts, complete provider/viewer example, execution domains, recipes, failure handling, limitations and authoring checklist.
+- [Runnable examples](EXAMPLES.md): CLI scaffolding and SDK usage with links to executable plugins.
+- [Implementation evidence](IMPLEMENTATION.md): Executed checks, supported local target and remaining gaps. Planned architecture does not establish implemented behavior.
+- [Architecture](ARCHITECTURE.md): Target contracts and boundaries.
+- [Repository instructions](AGENTS.md): Required rules for changes to this repository.
+- [Delivery plan](PLAN.md): Milestone order and acceptance targets.
+
+Always keep rendering on the GUI thread. Use versioned, validated actions for business communication, managed workers for blocking/CPU work, and direct private operations for sensitive values. No hot loading, automatic dependency installation or untrusted-plugin sandbox is provided. Verify current source and public signatures before assuming an API exists.

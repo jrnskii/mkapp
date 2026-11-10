@@ -1,0 +1,12 @@
+[project]
+name = "mkapp-example-wheel"
+version = "0.1.0"
+requires-python = ">=3.14,<3.15"
+dependencies = ["mkapp>=0.1,<0.2"]
+
+[project.entry-points."mkapp.plugins"]
+"example.wheel" = "mkapp_example_wheel:create_plugin"
+
+[build-system]
+requires = ["uv_build>=0.13.1,<0.14.0"]
+build-backend = "uv_build"

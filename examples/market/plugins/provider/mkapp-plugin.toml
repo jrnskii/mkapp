@@ -1,0 +1,6 @@
+manifest_version = 1
+id = "example.prices"
+version = "0.1.0"
+sdk = ">=0.1,<0.2"
+entry = "synthetic_prices:create_plugin"
+announce = false
